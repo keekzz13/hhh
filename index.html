@@ -3,19 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chloe</title>
+
+  <title>For Chloe</title>
 
   <style>
     * {
-      margin: 0;
-      padding: 0;
       box-sizing: border-box;
     }
 
     body {
-      background: #08090f;
-      overflow: hidden;
+      margin: 0;
+      width: 100vw;
       height: 100vh;
+      overflow: hidden;
+      background: #000;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -24,58 +25,104 @@
 
     .heart {
       position: relative;
-      width: 650px;
-      height: 600px;
+      width: min(90vw, 700px);
+      height: min(90vw, 650px);
     }
 
     .love {
       position: absolute;
       left: 50%;
       top: 50%;
+
+      color: #ff9fba;
+      font-size: 15px;
+      font-weight: 500;
+
+      white-space: nowrap;
+
+      text-shadow:
+        0 0 4px #ff9fba,
+        0 0 10px #ff6f98,
+        0 0 18px #ff4778;
+
+      opacity: 0;
+
       transform:
         translate(-50%, -50%)
-        rotate(var(--angle))
-        translateY(var(--radius));
-      color: #ff6b8a;
-      font-size: 14px;
-      white-space: nowrap;
-      opacity: 0;
-      animation: appear 1s forwards, float 3s ease-in-out infinite;
-      animation-delay: var(--delay), var(--delay);
-      text-shadow: 0 0 8px #ff4f75;
+        rotate(var(--rotation));
+
+      animation:
+        appear 0.8s forwards,
+        glow 2.5s ease-in-out infinite;
+
+      animation-delay:
+        var(--delay),
+        calc(var(--delay) + 0.8s);
     }
 
     .chloe {
       position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      color: white;
-      font-size: 55px;
-      font-weight: bold;
-      text-shadow:
-        0 0 10px #ff4f75,
-        0 0 25px #ff4f75,
-        0 0 50px #ff4f75;
-      z-index: 10;
-      animation: pulse 2s infinite ease-in-out;
-    }
 
-    .heart-symbol {
-      position: absolute;
       left: 50%;
       top: 50%;
+
       transform: translate(-50%, -50%);
-      color: #ff4f75;
-      font-size: 350px;
-      opacity: 0.05;
-      z-index: 0;
+
+      color: #fff;
+      font-size: clamp(38px, 8vw, 70px);
+      font-weight: bold;
+
+      text-shadow:
+        0 0 8px #fff,
+        0 0 20px #ff7c9e,
+        0 0 40px #ff4778,
+        0 0 70px #ff4778;
+
+      z-index: 10;
+
+      animation: pulse 2s ease-in-out infinite;
     }
 
     @keyframes appear {
       from {
         opacity: 0;
+        transform:
+          translate(-50%, -50%)
+          rotate(var(--rotation))
+          scale(0.5);
       }
+
       to {
         opacity: 0.9;
-     
+        transform:
+          translate(-50%, -50%)
+          rotate(var(--rotation))
+          scale(1);
+      }
+    }
+
+    @keyframes glow {
+      0%, 100% {
+        filter: brightness(1);
+      }
+
+      50% {
+        filter: brightness(1.5);
+      }
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        transform: translate(-50%, -50%) scale(1);
+      }
+
+      50% {
+        transform: translate(-50%, -50%) scale(1.08);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="heart" id="heart
