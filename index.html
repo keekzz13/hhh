@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chloe</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #08090f;
+      overflow: hidden;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: Arial, sans-serif;
+    }
+
+    .heart {
+      position: relative;
+      width: 650px;
+      height: 600px;
+    }
+
+    .love {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform:
+        translate(-50%, -50%)
+        rotate(var(--angle))
+        translateY(var(--radius));
+      color: #ff6b8a;
+      font-size: 14px;
+      white-space: nowrap;
+      opacity: 0;
+      animation: appear 1s forwards, float 3s ease-in-out infinite;
+      animation-delay: var(--delay), var(--delay);
+      text-shadow: 0 0 8px #ff4f75;
+    }
+
+    .chloe {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      font-size: 55px;
+      font-weight: bold;
+      text-shadow:
+        0 0 10px #ff4f75,
+        0 0 25px #ff4f75,
+        0 0 50px #ff4f75;
+      z-index: 10;
+      animation: pulse 2s infinite ease-in-out;
+    }
+
+    .heart-symbol {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      color: #ff4f75;
+      font-size: 350px;
+      opacity: 0.05;
+      z-index: 0;
+    }
+
+    @keyframes appear {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 0.9;
+     
